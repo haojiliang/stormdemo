@@ -10,7 +10,12 @@ import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.utils.Utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class WordCountTopology {
+
+    private static Map CONF = new HashMap<Object, Object>();
 
     private static final String SENTENCE_SPOUT_ID = "sentence-spout";
     private static final String SPLIT_BOLT_ID = "split-bolt";
@@ -19,6 +24,8 @@ public class WordCountTopology {
     private static final String TOPOLOGY_NAME = "word-count-topology";
 
     public static void main(String[] args) {
+
+//        loadConf(args[0]);
 
         SentenceSpout spout = new SentenceSpout();
         SplitSentenceBolt splitBolt = new SplitSentenceBolt();
@@ -46,6 +53,22 @@ public class WordCountTopology {
         Utils.sleep(10000);
         cluster.killTopology(TOPOLOGY_NAME);
         cluster.shutdown();
+    }
+
+    public static void setLocalTopology() {
+
+    }
+
+    public static void setRemoteTopology() {
+
+    }
+
+    public static void loadConf(String confPath) {
+
+    }
+
+    public static void setBuilder(TopologyBuilder builder, Map conf) {
+
     }
 
 }
